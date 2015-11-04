@@ -40,43 +40,29 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-				<section>
+				<section data-background="#f7df1e">
 					<h1>JavaScript<br>Event Loop</h1>
 				</section>
 
 				<section>
-					<h2>JavaScript — однопоточный ЯП</h2>
+					<h2>JavaScript однопоточен</h2>
+					<p>Один процесс <strong>(process)</strong>, один поток выполнения <strong>(thread)</strong>.</p>
 					<ul>
-						<li>Один процесс, один поток выполнения</li>
-						<li>Неблокирующий ввод/вывод</li>
-						<li>Параллелизм (concurrency)</li>
-						<li>Отстутствие ошибок многопоточной системы (race conditions etc.)</li>
+						<li class="fragment">неблокирующий ввод/вывод <strong>(non-blocking I/O)</strong></li>
+						<li class="fragment">"фейковый" параллелизм <strong>(concurrency)</strong></li>
+						<li class="fragment">отстутствие ошибок многопоточной системы (<strong>race conditions</strong> etc.)</li>
 					</ul>
 				</section>
 
-				<!-- Example of nested vertical slides -->
 				<section>
-					<section>
-						<h2>Vertical Slides</h2>
-						<p>Slides can be nested inside of each other.</p>
-						<p>Use the <em>Space</em> key to navigate through all slides.</p>
-						<br>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 1</h2>
-						<p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
-					</section>
-					<section>
-						<h2>Basement Level 2</h2>
-						<p>That's it, time to go back up.</p>
-						<br>
-						<a href="#/2">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="transform: rotate(180deg); -webkit-transform: rotate(180deg);">
-						</a>
-					</section>
+					<h2>Event Loop</h2>
+					<ul>
+						<li><strong>Ruby:</strong> <i>EventMachine</i></li>
+						<li><strong>Python:</strong> <i>Tornado</i></li>
+						<li><strong>PHP:</strong> <i>ReactPHP</i></li>
+						<li><strong>Go:</strong> <i>goroutines</i></li>
+						<li><strong>JavaScript:</strong> <i>JavaScript</i></li>
+					</ul>
 				</section>
 
 				<section>
@@ -385,7 +371,7 @@ Reveal.addEventListener( 'customevent', function() {
 				history: true,
 				center: true,
 
-				transition: 'concave', // none/fade/slide/convex/concave/zoom
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
 				transitionSpeed: 'fast',
 
 				// Optional reveal.js plugins
