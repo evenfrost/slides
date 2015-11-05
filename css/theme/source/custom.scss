@@ -46,3 +46,97 @@ section.has-dark-background {
 // Theme template ------------------------------
 @import "../template/theme";
 // ---------------------------------------------
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.reveal .row {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+  > * {
+    border: 5px solid #000;
+    flex: 0 1 auto;
+    height: 200px;
+    margin: 10px;
+  }
+
+  &.column {
+
+    &.one {
+
+      > * {
+        flex-basis: 100%;
+      }
+
+    }
+
+    &.three {
+
+      > * {
+        flex-basis: calc(100% / 3);
+      }
+
+    }
+
+  }
+
+  &.tall {
+
+    > * {
+      height: 400px;
+    }
+
+  }
+
+  .content {
+    position: relative;
+
+    &.random {
+
+      > * {
+        $multiplier: 100px;
+        position: absolute;
+
+        &:first-child {
+          top: round(random() * $multiplier);
+          left: round(random() * $multiplier);
+        }
+        
+        &:nth-child(2) {
+          top: round(random() * $multiplier);
+          left: round(random() * $multiplier);
+        }
+        
+        &:nth-child(3) {
+          top: round(random() * $multiplier);
+          left: round(random() * $multiplier);
+        }
+        
+        &:last-child {
+          top: round(random() * $multiplier);
+          left: round(random() * $multiplier);
+        }
+        
+      }
+
+    }
+
+  }
+
+
+}
+
+.block {
+  background: $mainColor;
+
+  &.square {
+    height: 30px;
+    width: 30px;
+  }
+
+}
