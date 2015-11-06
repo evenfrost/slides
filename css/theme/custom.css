@@ -306,7 +306,7 @@ body {
   .reveal .row.column.three > * {
     flex-basis: calc(100% / 3); }
   .reveal .row.tall > * {
-    height: 400px; }
+    height: 450px; }
   .reveal .row .content {
     position: relative; }
     .reveal .row .content.random > * {
@@ -338,13 +338,22 @@ body {
         height: 115px;
         justify-content: center;
         margin-bottom: 10px;
+        margin-right: 10px;
         width: 150px; }
-        .reveal .row .content.horizontal .block:not(:last-child) {
-          margin-right: 10px; }
       .reveal .row .content.horizontal.fixed {
         max-width: 500px; }
     .reveal .row .content.aligned.left {
       text-align: left; }
+    .reveal .row .content.flexy {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      justify-content: center; }
+    .reveal .row .content.absolute {
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      right: 0; }
 
 .reveal .column.item {
   position: relative; }
@@ -377,6 +386,9 @@ body {
     bottom: 10px;
     left: 0;
     position: absolute; }
+  .reveal .block.with.small.text {
+    font-size: .7em;
+    line-height: 2; }
 
 .reveal pre {
   box-shadow: none;
@@ -387,7 +399,12 @@ body {
   opacity: 1;
   visibility: visible; }
   .reveal .slides section .fragment.highlight-black.visible {
-    color: #000; }
+    color: #333; }
+    .reveal .slides section .fragment.highlight-black.visible .hljs, .reveal .slides section .fragment.highlight-black.visible [class^="hljs"] {
+      color: inherit !important; }
+
+.reveal .slides section .fragment.highlight-blue.visible .hljs, .reveal .slides section .fragment.highlight-blue.visible [class^="hljs"] {
+  color: #1b91ff; }
 
 .reveal section img {
   background: none;
@@ -401,3 +418,14 @@ body {
   right: 0;
   top: 0;
   width: 100px; }
+
+.reveal pre code {
+  margin-top: -1em;
+  tab-size: 2; }
+
+.reveal .slides section .fragment.removable:not(.current-fragment) {
+  height: 0;
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  width: 0; }

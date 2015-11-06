@@ -18,7 +18,7 @@
 		<link rel="stylesheet" href="css/theme/custom.css" id="theme">
 
 		<!-- Code syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<link rel="stylesheet" href="lib/css/vs.css">
 
 		<!-- Printing and PDF exports -->
 		<script>
@@ -60,7 +60,6 @@
 						<li><strong>Ruby</strong> <i class="fragment" data-fragment-index="1">EventMachine</i></li>
 						<li><strong>Python</strong> <i class="fragment" data-fragment-index="1">Tornado</i></li>
 						<li><strong>PHP</strong> <i class="fragment" data-fragment-index="1">ReactPHP</i></li>
-						<li><strong>Go</strong> <i class="fragment" data-fragment-index="1">goroutines</i></li>
 						<li><strong>JavaScript</strong> <i class="fragment" data-fragment-index="1">as is</i></li>
 					</ul>
 				</section>
@@ -121,43 +120,43 @@
 
 					<div class="tall two column row">
 						<div class="flexy column item">
-							<div class="left aligned content">
+							<div class="left aligned flexy content">
 
 <div class="fragment highlight-blue" data-fragment-index="1">
 <div class="fragment highlight-black" data-fragment-index="6">
-<pre>
+<pre><code class="js">
 function a() {
 	return b();
 }
-</pre>
+</code></pre>
 </div>
 </div>
 
 <div class="fragment highlight-blue" data-fragment-index="2">
 <div class="fragment highlight-black" data-fragment-index="5">
-<pre>
+<pre><code class="js">
 function b() {
 	return c();
 }
-</pre>
+</code></pre>
 </div>
 </div>
 
 <div class="fragment highlight-blue" data-fragment-index="3">
 <div class="fragment highlight-black" data-fragment-index="4">
-<pre>
+<pre><code class="js">
 function c() {
 	...
 }
-</pre>
+</code></pre>
 </div>
 </div>
 
 <div class="fragment highlight-blue" data-fragment-index="1">
 <div class="fragment highlight-black" data-fragment-index="6">
-<pre>
+<pre><code class="js">
 a();
-</pre>
+</code></pre>
 </div>
 </div>
 							</div>
@@ -168,18 +167,78 @@ a();
 							<div class="content">
 								<div class="fragment" data-fragment-index="3">
 									<div class="fragment fade-out" data-fragment-index="4">
-										<div class="blue block">c()</div>
+										<div class="blue block">c</div>
 									</div>
 								</div>
 								<div class="fragment" data-fragment-index="2">
 									<div class="fragment fade-out" data-fragment-index="5">
-										<div class="blue block">b()</div>
+										<div class="blue block">b</div>
 									</div>
 								</div>
 								<div class="fragment" data-fragment-index="1">
 									<div class="fragment fade-out" data-fragment-index="6">
-										<div class="blue block">a()</div>
+										<div class="blue block">a</div>
 									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					
+				</section>
+
+				<section>
+
+					<div class="tall two column row">
+						<div class="flexy column item">
+							<div class="left aligned flexy content">
+
+<div class="fragment highlight-blue" data-fragment-index="1">
+<div class="fragment highlight-black" data-fragment-index="6">
+<pre><code class="js">
+function a() {
+	a();
+}
+</code></pre>
+</div>
+</div>
+
+<div class="fragment highlight-blue" data-fragment-index="1">
+<div class="fragment highlight-black" data-fragment-index="6">
+<pre><code class="js">
+a();
+</code></pre>
+</div>
+</div>
+							</div>
+						</div>
+
+						<div class="flexy column item">
+							<h5>Stack</h5>
+							<div class="absolute content">
+								<div class="fragment" data-fragment-index="9">
+									<div class="red block">a</div>
+								</div>
+								<div class="fragment" data-fragment-index="8">
+									<div class="blue block">a</div>
+								</div>
+								<div class="fragment" data-fragment-index="7">
+									<div class="blue block">a</div>
+								</div>
+								<div class="fragment" data-fragment-index="6">
+									<div class="blue block">a</div>
+								</div>
+								<div class="fragment" data-fragment-index="5">
+									<div class="blue block">a</div>
+								</div>
+								<div class="fragment" data-fragment-index="4">
+									<div class="blue block">a</div>
+								</div>
+								<div class="fragment" data-fragment-index="2">
+									<div class="blue block">a</div>
+								</div>
+								<div class="fragment" data-fragment-index="1">
+									<div class="blue block">a</div>
 								</div>
 							</div>
 						</div>
@@ -196,50 +255,50 @@ a();
 
 <div class="fragment highlight-blue" data-fragment-index="1">
 <div class="fragment highlight-black" data-fragment-index="8">
-<pre>
+<pre><code class="js">
 function a() {
 	return b();
 }
-</pre>
+</code></pre>
 </div>
 </div>
 
 <div class="fragment highlight-blue" data-fragment-index="2">
 <div class="fragment highlight-black" data-fragment-index="3">
-<pre>
+<pre><code class="js">
 setTimeout(function cb() {
 	...
 }, 0);
-</pre>
+</code></pre>
 </div>
 </div>
 
 
 <div class="fragment highlight-blue" data-fragment-index="4">
 <div class="fragment highlight-black" data-fragment-index="7">
-<pre>
+<pre><code class="js">
 function b() {
 	return c();
 }
-</pre>
+</code></pre>
 </div>
 </div>
 
 <div class="fragment highlight-blue" data-fragment-index="5">
 <div class="fragment highlight-black" data-fragment-index="6">
-<pre>
+<pre><code class="js">
 function c() {
 	...
 }
-</pre>
+</code></pre>
 </div>
 </div>
 
 <div class="fragment highlight-blue" data-fragment-index="1">
 <div class="fragment highlight-black" data-fragment-index="8">
-<pre>
+<pre><code class="js">
 a();
-</pre>
+</code></pre>
 </div>
 </div>
 							</div>
@@ -250,27 +309,27 @@ a();
 							<div class="content">
 								<div class="fragment" data-fragment-index="9">
 									<div class="fragment fade-out" data-fragment-index="10">
-										<div class="absolute blue block">cb()</div>
+										<div class="absolute blue block">cb</div>
 									</div>
 								</div>
 								<div class="fragment" data-fragment-index="5">
 									<div class="fragment fade-out" data-fragment-index="6">
-										<div class="blue block">c()</div>
+										<div class="blue block">c</div>
 									</div>
 								</div>
 								<div class="fragment" data-fragment-index="4">
 									<div class="fragment fade-out" data-fragment-index="7">
-										<div class="blue block">b()</div>
+										<div class="blue block">b</div>
 									</div>
 								</div>
-								<div class="fragment" data-fragment-index="2">
+								<div class="removable fragment" data-fragment-index="2">
 									<div class="fragment fade-out" data-fragment-index="3">
 										<div class="blue block">setTimeout(cb)</div>
 									</div>
 								</div>
 								<div class="fragment" data-fragment-index="1">
 									<div class="fragment fade-out" data-fragment-index="8">
-										<div class="blue block">a()</div>
+										<div class="blue block">a</div>
 									</div>
 								</div>
 							</div>
@@ -284,7 +343,7 @@ a();
 							<div class="fixed horizontal content">
 								<div class="fragment" data-fragment-index="3">
 									<div class="fragment fade-out" data-fragment-index="9">
-										<div class="green block">cb()</div>
+										<div class="green block">cb</div>
 									</div>
 								</div>
 							</div>
@@ -299,6 +358,121 @@ a();
 					
 				</section>
 
+				<section>
+
+					<div class="tall two column row">
+						<div class="flexy column item">
+							<div class="left aligned content">
+
+<div class="fragment highlight-blue" data-fragment-index="3">
+<div class="fragment highlight-black" data-fragment-index="4">
+<pre><code class="js">
+function animate() {
+	return Array
+		.from(document.querySelectorAll('*'))
+		.map(el => el.getBoundingClientRect());
+}
+</code></pre>
+</div>
+</div>
+
+<div class="fragment highlight-blue" data-fragment-index="1">
+<div class="fragment highlight-black" data-fragment-index="2">
+<pre><code class="js">
+document.addEventListener('scroll', animate);
+</code></pre>
+</div>
+</div>
+							</div>
+						</div>
+
+						<div class="flexy column item">
+							<h5>Stack</h5>
+							<div class="content">
+								<div class="fragment" data-fragment-index="1">
+									<div class="fragment fade-out" data-fragment-index="2">
+										<div class="absolute blue block with small text">addEventListener</div>
+									</div>
+								</div>
+								<div class="fragment" data-fragment-index="3">
+									<div class="fragment fade-out" data-fragment-index="4">
+										<div class="absolute blue block with small text">animate</div>
+									</div>
+								</div>
+								<div class="fragment" data-fragment-index="5">
+									<div class="fragment fade-out" data-fragment-index="5">
+										<div class="absolute blue block with small text">addEventListener</div>
+									</div>
+								</div>
+								<div class="fragment" data-fragment-index="6">
+									<div class="fragment fade-out" data-fragment-index="6">
+										<div class="absolute blue block with small text">addEventListener</div>
+									</div>
+								</div>
+								<div class="fragment" data-fragment-index="7">
+									<div class="fragment fade-out" data-fragment-index="7">
+										<div class="absolute blue block with small text">addEventListener</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="one column row">
+						<div class="vertical flexy column item">
+							<h5>Queue</h5>
+							<div class="fixed horizontal content">
+								<div class="removable fragment" data-fragment-index="2">
+									<div class="fragment fade-out" data-fragment-index="3">
+										<div class="green block">animate</div>
+									</div>
+								</div>
+								<div class="fragment" data-fragment-index="5">
+									<div class="green block">animate</div>
+								</div>
+								<div class="fragment" data-fragment-index="6">
+									<div class="green block">animate</div>
+								</div>
+								<div class="fragment" data-fragment-index="7">
+									<div class="green block">animate</div>
+								</div>
+								<div class="fragment" data-fragment-index="8">
+									<div class="green block">animate</div>
+								</div>
+								<div class="fragment" data-fragment-index="9">
+									<div class="green block">animate</div>
+								</div>
+							</div>
+
+							<div class="fragment" data-fragment-index="3">
+								<div class="fragment fade-out" data-fragment-index="3">
+									<img src="/img/cycle.png" alt="Event Loop" class="loop">
+								</div>
+							</div>
+						</div>
+					</div>
+					
+				</section>
+
+				<section>
+					<h1>Multithreaded JS</h1>
+					<ul>
+						<li>Web Workers</li>
+						<li>webworker-threads</li>
+						<li>JXCore</li>
+						<li>Cluster</li>
+					</ul>
+				</section>
+
+				<section>
+					<h1>Ресурсы</h1>
+					<ul>
+						<li><a href="https://www.youtube.com/watch?v=8aGhZQkoFbQ">Philip Roberts: What the heck is the event loop anyway?</a></li>
+						<li><a href="https://thomashunter.name/blog/the-javascript-event-loop-presentation/">The JavaScript Event Loop [Presentation] by Thomas Hunter II</a></li>
+						<li><a href="http://stackoverflow.com/questions/2734025/is-javascript-guaranteed-to-be-single-threaded/2734311#2734311">Is javascript guaranteed to be single-threaded?</a></li>
+					</ul>
+				</section>
 
 				<section>
 					<h1>Спасибо за внимание</h1>

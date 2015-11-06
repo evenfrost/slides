@@ -101,7 +101,7 @@ section.has-dark-background {
   &.tall {
 
     > * {
-      height: 400px;
+      height: 450px;
     }
 
   }
@@ -159,12 +159,8 @@ section.has-dark-background {
         height: 115px;
         justify-content: center;
         margin-bottom: 10px;
+        margin-right: 10px;
         width: 150px;
-
-        &:not(:last-child) {
-          margin-right: 10px;
-        }
-
       }
 
       &.fixed {
@@ -179,6 +175,20 @@ section.has-dark-background {
         text-align: left;
       }
 
+    }
+
+    &.flexy {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    &.absolute {
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      right: 0;
     }
 
   }
@@ -240,6 +250,11 @@ section.has-dark-background {
     position: absolute;
   }
 
+  &.with.small.text {
+    font-size: .7em;
+    line-height: 2;
+  }
+
 }
 
 .reveal pre {
@@ -253,9 +268,19 @@ section.has-dark-background {
   visibility: visible;
 
   &.visible {
-    color: #000;
+    color: #333;
+
+    .hljs, [class^="hljs"] {
+      color: inherit !important;
+    }
   }
 
+}
+
+.reveal .slides section .fragment.highlight-blue.visible {
+  .hljs, [class^="hljs"] {
+    color: #1b91ff;
+  }
 }
 
 .reveal section img {
@@ -271,4 +296,25 @@ section.has-dark-background {
   right: 0;
   top: 0;
   width: 100px;
+}
+
+.reveal pre code {
+  margin-top: -1em;
+  tab-size: 2;
+}
+
+.reveal .slides section .fragment {
+
+  &.removable {
+
+    &:not(.current-fragment) {
+      height: 0;
+      margin: 0;
+      overflow: hidden;
+      padding: 0;
+      width: 0;
+    }
+
+  }
+
 }
