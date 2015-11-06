@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>reveal.js – The HTML Presentation Framework</title>
+		<title>JavaScript Event Loop</title>
 
 		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
 		<meta name="author" content="Hakim El Hattab">
@@ -48,50 +48,257 @@
 					<h2>JavaScript однопоточен</h2>
 					<p>Один процесс <strong>(process)</strong>, один поток выполнения <strong>(thread)</strong>.</p>
 					<ul>
-						<li class="fragment">неблокирующий ввод/вывод <strong>(non-blocking I/O)</strong></li>
-						<li class="fragment">"фейковый" параллелизм <strong>(concurrency)</strong></li>
-						<li class="fragment">отстутствие ошибок многопоточной системы (<strong>race conditions</strong> etc.)</li>
+						<li class="fragment" data-fragment-index="1">неблокирующий ввод/вывод <strong>(non-blocking I/O)</strong></li>
+						<li class="fragment" data-fragment-index="1">"фейковый" параллелизм <strong>(concurrency)</strong></li>
+						<li class="fragment" data-fragment-index="1">отстутствие ошибок многопоточной системы (<strong>race conditions</strong> etc.)</li>
 					</ul>
 				</section>
 
 				<section>
 					<h2>Event Loop</h2>
 					<ul>
-						<li><strong>Ruby:</strong> <i>EventMachine</i></li>
-						<li><strong>Python:</strong> <i>Tornado</i></li>
-						<li><strong>PHP:</strong> <i>ReactPHP</i></li>
-						<li><strong>Go:</strong> <i>goroutines</i></li>
-						<li><strong>JavaScript:</strong> <i>as is</i></li>
+						<li><strong>Ruby</strong> <i class="fragment" data-fragment-index="1">EventMachine</i></li>
+						<li><strong>Python</strong> <i class="fragment" data-fragment-index="1">Tornado</i></li>
+						<li><strong>PHP</strong> <i class="fragment" data-fragment-index="1">ReactPHP</i></li>
+						<li><strong>Go</strong> <i class="fragment" data-fragment-index="1">goroutines</i></li>
+						<li><strong>JavaScript</strong> <i class="fragment" data-fragment-index="1">as is</i></li>
 					</ul>
 				</section>
 
 				<section>
 
-					<div class="tall three column row ">
+					<div class="tall three column row">
 						<div>
 							<h5>Heap</h5>
 
 							<div class="random content">
-								<div class="square block"></div>
-								<div class="square block"></div>
-								<div class="square block"></div>
+								<div class="red square block"></div>
+								<div class="red square block"></div>
+								<div class="red square block"></div>
+								<div class="red square block"></div>
 							</div>
 						</div>
-						<div>
+
+						<div class="flexy column item">
 							<h5>Stack</h5>
+							<div class="content">
+								<div class="blue block"></div>
+								<div class="blue block"></div>
+								<div class="blue block"></div>
+							</div>
 						</div>
-						<div>
-							<h5>APIs</h5>
+
+						<div class="grey column item fragment">
+							<h5 class="title">APIs</h5>
+							<div class="content">
+								document
+								<br>
+								setTimeout
+								<br>
+								fetch
+								<br>
+								addEventListener
+								<br>
+								...
+							</div>
 						</div>
 					</div>
 
 					<div class="one column row">
-						<div>
+						<div class="vertical flexy column item">
 							<h5>Queue</h5>
+							<div class="fixed horizontal content">
+								<div class="green block"></div>
+								<div class="green block"></div>
+								<div class="green block"></div>
+							</div>
 						</div>
 					</div>
 					
 				</section>
+
+				<section>
+
+					<div class="tall two column row">
+						<div class="flexy column item">
+							<div class="left aligned content">
+
+<div class="fragment highlight-blue" data-fragment-index="1">
+<div class="fragment highlight-black" data-fragment-index="6">
+<pre>
+function a() {
+	return b();
+}
+</pre>
+</div>
+</div>
+
+<div class="fragment highlight-blue" data-fragment-index="2">
+<div class="fragment highlight-black" data-fragment-index="5">
+<pre>
+function b() {
+	return c();
+}
+</pre>
+</div>
+</div>
+
+<div class="fragment highlight-blue" data-fragment-index="3">
+<div class="fragment highlight-black" data-fragment-index="4">
+<pre>
+function c() {
+	...
+}
+</pre>
+</div>
+</div>
+
+<div class="fragment highlight-blue" data-fragment-index="1">
+<div class="fragment highlight-black" data-fragment-index="6">
+<pre>
+a();
+</pre>
+</div>
+</div>
+							</div>
+						</div>
+
+						<div class="flexy column item">
+							<h5>Stack</h5>
+							<div class="content">
+								<div class="fragment" data-fragment-index="3">
+									<div class="fragment fade-out" data-fragment-index="4">
+										<div class="blue block">c()</div>
+									</div>
+								</div>
+								<div class="fragment" data-fragment-index="2">
+									<div class="fragment fade-out" data-fragment-index="5">
+										<div class="blue block">b()</div>
+									</div>
+								</div>
+								<div class="fragment" data-fragment-index="1">
+									<div class="fragment fade-out" data-fragment-index="6">
+										<div class="blue block">a()</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					
+				</section>
+
+				<section>
+
+					<div class="tall two column row">
+						<div class="flexy column item">
+							<div class="left aligned content">
+
+<div class="fragment highlight-blue" data-fragment-index="1">
+<div class="fragment highlight-black" data-fragment-index="8">
+<pre>
+function a() {
+	return b();
+}
+</pre>
+</div>
+</div>
+
+<div class="fragment highlight-blue" data-fragment-index="2">
+<div class="fragment highlight-black" data-fragment-index="3">
+<pre>
+setTimeout(function cb() {
+	...
+}, 0);
+</pre>
+</div>
+</div>
+
+
+<div class="fragment highlight-blue" data-fragment-index="4">
+<div class="fragment highlight-black" data-fragment-index="7">
+<pre>
+function b() {
+	return c();
+}
+</pre>
+</div>
+</div>
+
+<div class="fragment highlight-blue" data-fragment-index="5">
+<div class="fragment highlight-black" data-fragment-index="6">
+<pre>
+function c() {
+	...
+}
+</pre>
+</div>
+</div>
+
+<div class="fragment highlight-blue" data-fragment-index="1">
+<div class="fragment highlight-black" data-fragment-index="8">
+<pre>
+a();
+</pre>
+</div>
+</div>
+							</div>
+						</div>
+
+						<div class="flexy column item">
+							<h5>Stack</h5>
+							<div class="content">
+								<div class="fragment" data-fragment-index="9">
+									<div class="fragment fade-out" data-fragment-index="10">
+										<div class="absolute blue block">cb()</div>
+									</div>
+								</div>
+								<div class="fragment" data-fragment-index="5">
+									<div class="fragment fade-out" data-fragment-index="6">
+										<div class="blue block">c()</div>
+									</div>
+								</div>
+								<div class="fragment" data-fragment-index="4">
+									<div class="fragment fade-out" data-fragment-index="7">
+										<div class="blue block">b()</div>
+									</div>
+								</div>
+								<div class="fragment" data-fragment-index="2">
+									<div class="fragment fade-out" data-fragment-index="3">
+										<div class="blue block">setTimeout(cb)</div>
+									</div>
+								</div>
+								<div class="fragment" data-fragment-index="1">
+									<div class="fragment fade-out" data-fragment-index="8">
+										<div class="blue block">a()</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="one column row">
+						<div class="vertical flexy column item">
+							<h5>Queue</h5>
+							<div class="fixed horizontal content">
+								<div class="fragment" data-fragment-index="3">
+									<div class="fragment fade-out" data-fragment-index="9">
+										<div class="green block">cb()</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="fragment" data-fragment-index="8">
+								<div class="fragment fade-out" data-fragment-index="10">
+									<img src="/img/cycle.png" alt="Event Loop" class="loop">
+								</div>
+							</div>
+						</div>
+					</div>
+					
+				</section>
+
 
 				<section>
 					<h1>Спасибо за внимание</h1>

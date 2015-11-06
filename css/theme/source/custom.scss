@@ -20,6 +20,11 @@ $backgroundColor: #fff;
 $mainColor: #222;
 $headingColor: #222;
 
+$redColor: #e74c3c;
+$blueColor: #03a9f4;
+$greenColor: #4caf50;
+$greyColor: #9e9e9e;
+
 $mainFontSize: 38px;
 $mainFont: 'LatoWeb', Helvetica, sans-serif;
 $headingFont: 'LatoWeb', Helvetica, sans-serif;
@@ -75,6 +80,14 @@ section.has-dark-background {
 
     }
 
+    &.two {
+
+      > * {
+        flex-basis: 50%;
+      }
+
+    }
+
     &.three {
 
       > * {
@@ -99,44 +112,163 @@ section.has-dark-background {
     &.random {
 
       > * {
-        $multiplier: 100px;
         position: absolute;
 
         &:first-child {
-          top: round(random() * $multiplier);
-          left: round(random() * $multiplier);
+          left: 70px;
+          top: 70px;
         }
         
         &:nth-child(2) {
-          top: round(random() * $multiplier);
-          left: round(random() * $multiplier);
+          left: 100px;
+          top: 200px;
         }
         
         &:nth-child(3) {
-          top: round(random() * $multiplier);
-          left: round(random() * $multiplier);
+          left: 200px;
+          top: 150px;
         }
         
         &:last-child {
-          top: round(random() * $multiplier);
-          left: round(random() * $multiplier);
+          left: 220px;
+          top: 30px;
         }
-        
+
+      }
+
+    }
+
+    &:not(.random) {
+      margin-left: 10px;
+      margin-right: 10px;
+
+      > * {
+        margin-bottom: 10px;
+      }
+
+    }
+
+    &.horizontal {
+      align-items: stretch;
+      display: flex;
+      flex: 1 1 auto;
+
+      .block {
+        align-items: center;
+        display: flex;
+        height: 115px;
+        justify-content: center;
+        margin-bottom: 10px;
+        width: 150px;
+
+        &:not(:last-child) {
+          margin-right: 10px;
+        }
+
+      }
+
+      &.fixed {
+        max-width: 500px;
+      }
+
+    }
+
+    &.aligned {
+
+      &.left {
+        text-align: left;
       }
 
     }
 
   }
 
+}
+
+.reveal .column.item {
+  position: relative;
+
+  &.flexy {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &.vertical {
+      flex-direction: column;
+    }
+
+  }
+
+  &.grey {
+    border-color: $greyColor;
+
+    > * {
+      color: $greyColor;
+    }
+
+  }
 
 }
 
-.block {
-  background: $mainColor;
 
+.reveal .block {
+  background: $mainColor;
+  color: #fff;
+  height: 50px;
+  font-weight: 700;
+  width: 100%;
+  
   &.square {
-    height: 30px;
-    width: 30px;
+    width: 50px;
   }
 
+  &.red {
+    background: $redColor;
+  }
+
+  &.blue {
+    background: $blueColor;
+  }
+
+  &.green {
+    background: $greenColor;
+  }
+
+  &.absolute {
+    bottom: 10px;
+    left: 0;
+    position: absolute;
+  }
+
+}
+
+.reveal pre {
+  box-shadow: none;
+  margin: 0;
+  width: auto;
+}
+
+.reveal .slides section .fragment.highlight-black {
+  opacity: 1;
+  visibility: visible;
+
+  &.visible {
+    color: #000;
+  }
+
+}
+
+.reveal section img {
+  background: none;
+  border: none;
+  box-shadow: none;
+  margin: 0;
+}
+
+.loop {
+  height: 100px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100px;
 }
